@@ -1,6 +1,6 @@
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from django.views.decorators.http import require_POST
-from .models import user_collection
+from .models import user_collection, User
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
@@ -56,8 +56,10 @@ class Controller:
         body = json.loads(request.body)
         
         
-        
-        
+        db_response = user_collection.find_one({"email": body.get('email')})
+        if db_response:
+            user = User(db_response)
+            print(user)
         
         # Response to the client
         return JsonResponse({

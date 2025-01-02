@@ -4,5 +4,6 @@ from .controller import Controller
 
 
 urlpatterns = [
-    path('register/', Controller.userRegistration)
+    path('register/', Controller.userRegistration),
+    path('login/', Controller.authentication)
 ]

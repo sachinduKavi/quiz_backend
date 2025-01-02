@@ -10,5 +10,14 @@ class User:
         self.name = name
         self.email = email
         self.password = password
+        
+        
+    def __str__(self):
+        return {
+            "_id": self._id,
+            "name": self.name,
+            "email": self.email,
+            "password": self.password
+        }
     
     
